@@ -1,0 +1,141 @@
+{
+  "users": [
+    {
+      "id": "usr-demo-synapse",
+      "name": "Lanna Maria Ribas Luz (Grupo Synapse MD)",
+      "email": "estudante@synapsemd.edu.br",
+      "period": "Medicina — APG / HAM / SOI III",
+      "passwordHash": "6694a558f6b4cbbd1db7ad94c09da7ad:06db9fe9b9b5d58d6a2d12d94b27342365d7a97dea3f9fc3ca96bb7fcc93c652745d85db7c9890746277fa2d9d4fe2364d6e320f3edd10ee108483f1f61586f0",
+      "createdAt": "2026-11-01T23:43:41.548Z"
+    }
+  ],
+  "memories": {
+    "usr-demo-synapse": {
+      "studiedTopics": [
+        {
+          "topic": "Fisiopatologia 01 & 02 — Disfunção do EEI na DRGE e H. pylori no Câncer Gástrico",
+          "specialty": "Gastroenterologia & Patologia (APG)",
+          "mastery": 100,
+          "sessionsCount": 7,
+          "lastStudiedAt": "2026-11-01T23:44:00.139Z"
+        },
+        {
+          "topic": "1. Sistema Nervoso Central — Organização Anatômica e Funcional",
+          "specialty": "Neuroanatomia & Neurofisiologia (2º Período)",
+          "mastery": 80,
+          "sessionsCount": 2,
+          "lastStudiedAt": "2026-11-01T23:43:41.549Z"
+        },
+        {
+          "topic": "SOI III Caso 01 — Hipertensão Arterial e Emergência Hipertensiva (Lesão de Órgãos-Alvo)",
+          "specialty": "SOI III — Casos Clínicos Integrados",
+          "mastery": 68,
+          "sessionsCount": 2,
+          "lastStudiedAt": "2026-11-01T23:43:41.549Z"
+        }
+      ],
+      "difficulties": [
+        {
+          "id": "diff-demo-1",
+          "topic": "SOI III — Caso 02: Dor Torácica e Síndrome Coronariana Aguda",
+          "subtopic": "Contraindicação de Nitratos e Betabloqueadores na Hipotensão / Infarto de VD",
+          "note": "Reforçar por que a venodilatação por nitratos precipita choque cardiogênico no paciente hipotenso.",
+          "identifiedAt": "2026-11-01T23:43:41.549Z",
+          "priority": "Alta"
+        }
+      ],
+      "suggestedReviews": [
+        {
+          "id": "rev-demo-1",
+          "topic": "SOI III — Caso 02: Dor Torácica e Síndrome Coronariana Aguda",
+          "subtopic": "Manejo da SCA com Hipotensão e Reperfusão",
+          "reason": "Ponto de atenção registrado — Revisão ativa recomendada",
+          "urgency": "Prioritária"
+        },
+        {
+          "id": "rev-demo-2",
+          "topic": "6. Sistema Geniturinário — Anatomia e Fisiologia Renal (Formação da Urina)",
+          "subtopic": "Filtração Glomerular, Reabsorção no TCP e Ação do ADH/Aldosterona",
+          "reason": "Revisão estruturada do roteiro de APG do 2º Período",
+          "urgency": "Sugerida"
+        }
+      ],
+      "activities": [
+        {
+          "id": "act-b6682eb7-b832-44b9-8bfe-9f5c3dfb8263",
+          "type": "APG",
+          "title": "Estudo Direcionado: Fisiopatologia 01 & 02 — Disfunção do EEI na DRGE e H. pylori no Câncer Gástrico",
+          "detail": "Mapeamento em 5 eixos (Anatomia, Fisiologia, Fisiopatologia, Diagnóstico e Conduta)",
+          "timestamp": "2026-11-01T23:44:00.139Z"
+        },
+        {
+          "id": "act-a0597869-0040-44f7-8acc-2a99dffa7075",
+          "type": "APG",
+          "title": "Estudo Direcionado: Fisiopatologia 01 & 02 — Disfunção do EEI na DRGE e H. pylori no Câncer Gástrico",
+          "detail": "Mapeamento em 5 eixos (Anatomia, Fisiologia, Fisiopatologia, Diagnóstico e Conduta)",
+          "timestamp": "2026-11-01T23:43:54.558Z"
+        },
+        {
+          "id": "act-97856f54-a1e8-4155-9e8b-f17b5275701e",
+          "type": "APG",
+          "title": "Estudo Direcionado: Fisiopatologia 01 & 02 — Disfunção do EEI na DRGE e H. pylori no Câncer Gástrico",
+          "detail": "Mapeamento em 5 eixos (Anatomia, Fisiologia, Fisiopatologia, Diagnóstico e Conduta)",
+          "timestamp": "2026-11-01T23:43:46.924Z"
+        },
+        {
+          "id": "act-4ea04bed-a392-4ae8-9efa-688c292681ff",
+          "type": "APG",
+          "title": "Estudo Direcionado: Fisiopatologia 01 & 02 — Disfunção do EEI na DRGE e H. pylori no Câncer Gástrico",
+          "detail": "Mapeamento em 5 eixos (Anatomia, Fisiologia, Fisiopatologia, Diagnóstico e Conduta)",
+          "timestamp": "2026-11-01T23:43:42.237Z"
+        },
+        {
+          "id": "act-demo-1",
+          "type": "APG",
+          "title": "Estudo Direcionado APG: DRGE (Esfíncter Esofágico Inferior) e H. pylori",
+          "detail": "Integração entre Guyton, Moore, Robbins e Diretriz FBG concluída",
+          "timestamp": "2026-11-01T23:43:41.549Z"
+        },
+        {
+          "id": "act-demo-2",
+          "type": "CASO",
+          "title": "Caso Clínico SOI III: Emergência Hipertensiva e Lesão de Órgãos-Alvo",
+          "detail": "Diferenciação entre urgência e emergência hipertensiva e meta de redução de 20-25% na 1ª hora",
+          "timestamp": "2026-11-01T23:43:41.549Z"
+        }
+      ],
+      "chatHistory": []
+    }
+  },
+  "materials": {
+    "usr-demo-synapse": [
+      {
+        "id": "mat-demo-1",
+        "userId": "usr-demo-synapse",
+        "title": "Caderno 01 — 15 Perguntas APG & HAM (2º Período: Guyton, Moore, Netter, Tortora, Snell e Bates)",
+        "fileName": "roteiro-apg-ham-2periodo.pdf",
+        "mimeType": "application/pdf",
+        "extractedText": "Roteiro oficial do grupo (Lanna Maria Ribas Luz, Laura Meira Porto, Mariane Gomes Bandeira, Thaís Silva Nolasco): 8 perguntas de APG (SNC, SNP, Potencial de Ação e Sinapses, Visão, Audição e Equilíbrio, Fisiologia Renal, Reprodutor Feminino e Masculino), 5 perguntas de HAM (Exame Neurológico Motor e Reflexos, 12 Pares de Nervos Cranianos, Exame Ginecológico, Cateterismo Vesical de Demora e Suporte Básico de Vida/DEA) e 2 Casos Clínicos Simulados.",
+        "createdAt": "2026-11-01T23:43:41.549Z"
+      },
+      {
+        "id": "mat-demo-2",
+        "userId": "usr-demo-synapse",
+        "title": "Caderno 02 — 10 Questões de Raciocínio Clínico (SOI III — Casos Clínicos Integrados)",
+        "fileName": "soi-iii-10-casos-clinicos.pdf",
+        "mimeType": "application/pdf",
+        "extractedText": "Casos clínicos integrados SOI III: 1) Emergência Hipertensiva e Lesão de Órgãos-Alvo; 2) Dor Torácica e Síndrome Coronariana Aguda com Hipotensão; 3) Dispneia Aguda (IC, Asma, DPOC, TEP); 4) TVP e Embolia Pulmonar (Tríade de Virchow); 5) Endocardite Infecciosa vs Febre Reumática; 6) Leucemia Aguda e Pancitopenia; 7) Dengue com Sinais de Alarme vs Malária; 8) Neoplasia Pulmonar vs Tuberculose; 9) Melanoma (ABCDE), Hanseníase e Celulite/Erisipela; 10) Doença de Chagas e Saúde Indígena.",
+        "createdAt": "2026-11-01T23:43:41.549Z"
+      },
+      {
+        "id": "mat-demo-3",
+        "userId": "usr-demo-synapse",
+        "title": "Caderno 03 — 20 Questões de Fisiologia e Fisiopatologia Médica",
+        "fileName": "fisiologia-e-fisiopatologia-20-questoes.pdf",
+        "mimeType": "application/pdf",
+        "extractedText": "20 questões estruturadas: Disfunção do EEI na DRGE, H. pylori e Câncer Gástrico, Alergia IgE vs Intolerância Alimentar, Doença de Crohn vs Retocolite Ulcerativa, Giardia duodenalis, Mecanismos da Diarreia, Sinais de Obstrução Intestinal, Cirrose e Hipertensão Portal, Síndrome Nefrítica vs Nefrótica, Receptores Hormonais no Câncer de Mama, Condução Elétrica Cardíaca, Troca Gasosa Alveolar, Sistema Linfático, Termorregulação Cutânea, Insulina e Glucagon, Eritropoiese e EPO, Mecânica Ventilatória, Linfócitos B e T, Hemostasia e Glicólise/ATP.",
+        "createdAt": "2026-11-01T23:43:41.549Z"
+      }
+    ]
+  }
+}

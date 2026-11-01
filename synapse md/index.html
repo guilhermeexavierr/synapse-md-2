@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, viewport-fit=cover">
+  <meta name="theme-color" content="#060814">
+  <title>SYNAPSE MD — A Inteligência Artificial que Desenvolve a Inteligência Humana</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <!-- Favicon: Sinapse Azul Ciano + Violeta Oficial dos Slides -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' rx='16' fill='%23060814'/><path d='M8 16 C18 24, 24 28, 29 32 C24 36, 18 40, 8 48' stroke='%2338bdf8' stroke-width='4.5' fill='none' stroke-linecap='round'/><path d='M56 16 C46 24, 40 28, 35 32 C40 36, 46 40, 56 48' stroke='%23a855f7' stroke-width='4.5' fill='none' stroke-linecap='round'/><circle cx='32' cy='32' r='5' fill='%23ffffff'/></svg>">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="synapse-ambient" aria-hidden="true"></div>
+
+  <!-- ====================================================================
+       TELA DE ENTRADA (IDENTIDADE VISUAL DOS SLIDES + CRÉDITOS DO GRUPO)
+       ==================================================================== -->
+  <section id="auth-screen" class="auth-screen" aria-label="Acesso à Plataforma Synapse MD">
+    <!-- Barra Superior Rápida com Botão de Tema Claro/Escuro -->
+    <div class="auth-top-bar">
+      <div class="group-pill">
+        <span>GRUPO ACADÊMICO DE MEDICINA // VERSÃO DIA 2</span>
+      </div>
+      <button type="button" class="theme-toggle-btn" onclick="toggleTheme()" aria-label="Alternar entre tema claro e escuro">
+        <span class="theme-icon" id="auth-theme-icon">☀️</span>
+        <span id="auth-theme-label">Tema Claro</span>
+      </button>
+    </div>
+
+    <div class="auth-container">
+      <!-- Coluna Esquerda: Identidade Visual Oficial dos Slides -->
+      <div class="auth-hero">
+        <div class="synapse-brand-hero">
+          <!-- Ícone Vetorial da Sinapse Azul + Violeta dos Slides -->
+          <svg class="synapse-logo-svg" width="76" height="52" viewBox="0 0 120 80" fill="none" aria-hidden="true">
+            <defs>
+              <linearGradient id="cyanGlow" x1="0%" y1="0%" x2="100%" y2="50%">
+                <stop offset="0%" stop-color="#0284c7" stop-opacity="0.2"/>
+                <stop offset="100%" stop-color="#38bdf8"/>
+              </linearGradient>
+              <linearGradient id="violetGlow" x1="100%" y1="0%" x2="0%" y2="50%">
+                <stop offset="0%" stop-color="#7e22ce" stop-opacity="0.2"/>
+                <stop offset="100%" stop-color="#a855f7"/>
+              </linearGradient>
+              <radialGradient id="sparkCore" cx="50%" cy="50%" r="50%">
+                <stop offset="0%" stop-color="#ffffff"/>
+                <stop offset="45%" stop-color="#38bdf8"/>
+                <stop offset="100%" stop-color="#a855f7" stop-opacity="0"/>
+              </radialGradient>
+            </defs>
+            <!-- Neurônio Esquerdo (Ciano) -->
+            <path d="M8 10 C28 24, 40 33, 53 40 C40 47, 28 56, 8 70" stroke="url(#cyanGlow)" stroke-width="5" stroke-linecap="round"/>
+            <path d="M18 4 C34 20, 44 32, 53 40" stroke="#38bdf8" stroke-width="2.5" stroke-linecap="round" opacity="0.75"/>
+            <path d="M18 76 C34 60, 44 48, 53 40" stroke="#38bdf8" stroke-width="2.5" stroke-linecap="round" opacity="0.75"/>
+            <!-- Neurônio Direito (Violeta) -->
+            <path d="M112 10 C92 24, 80 33, 67 40 C80 47, 92 56, 112 70" stroke="url(#violetGlow)" stroke-width="5" stroke-linecap="round"/>
+            <path d="M102 4 C86 20, 76 32, 67 40" stroke="#a855f7" stroke-width="2.5" stroke-linecap="round" opacity="0.75"/>
+            <path d="M102 76 C86 60, 76 48, 67 40" stroke="#a855f7" stroke-width="2.5" stroke-linecap="round" opacity="0.75"/>
+            <!-- Pulso Luminoso Central da Sinapse -->
+            <circle cx="60" cy="40" r="14" fill="url(#sparkCore)"/>
+            <circle cx="60" cy="40" r="4.5" fill="#ffffff"/>
+          </svg>
+
+          <div>
+            <div class="hero-kicker">APRESENTAMOS</div>
+            <h1 class="hero-logo-text">SYNAPSE <span>MD</span></h1>
+          </div>
+        </div>
+
+        <p class="hero-tagline">
+          A INTELIGÊNCIA ARTIFICIAL QUE <strong>DESENVOLVE</strong> A INTELIGÊNCIA HUMANA.
+        </p>
+
+        <div class="hero-question-box">
+          <h2>E se a IA não pensasse por você?<br><span>E se ela ensinasse você a pensar melhor?</span></h2>
+          <p class="hero-motto">“Não terceirize seu raciocínio. <strong>Desenvolva-o.</strong>”</p>
+        </div>
+
+        <!-- As Três Inteligências (Cores fiéis aos slides: Azul, Roxo e Verde) -->
+        <div class="tri-intelligence-grid">
+          <div class="tri-card cyan-card">
+            <div class="tri-num">01</div>
+            <div>
+              <h3>INTELIGÊNCIA CIENTÍFICA</h3>
+              <p>Evidence First™: Guyton, Moore, Netter, Tortora, Snell, Bates, Robbins, Diretrizes e PubMed. Zero Wikipédia.</p>
+            </div>
+          </div>
+
+          <div class="tri-card violet-card">
+            <div class="tri-num">02</div>
+            <div>
+              <h3>INTELIGÊNCIA CLÍNICA</h3>
+              <p>Mentor socrático, roteiros de APG, habilidades médicas (HAM) e 10 casos clínicos integrados do SOI III.</p>
+            </div>
+          </div>
+
+          <div class="tri-card emerald-card">
+            <div class="tri-num">03</div>
+            <div>
+              <h3>INTELIGÊNCIA EDUCACIONAL</h3>
+              <p>Identifica suas lacunas, registra seu progresso e personaliza revisões ativas para sua evolução.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card Oficial com o Nome Completo do Grupo -->
+        <div class="group-credits-card">
+          <div class="credits-title">INTEGRANTES DO GRUPO — PROJETO SYNAPSE MD</div>
+          <div class="credits-names-grid">
+            <div class="member-badge">👩‍⚕️ Lanna Maria Ribas Luz</div>
+            <div class="member-badge">👩‍⚕️ Laura Meira Porto</div>
+            <div class="member-badge">👩‍⚕️ Mariane Gomes Bandeira</div>
+            <div class="member-badge">👩‍⚕️ Thaís Silva Nolasco</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Coluna Direita: Card de Acesso Simplificado -->
+      <div class="auth-box">
+        <div class="auth-card">
+          <button type="button" class="btn-instant-demo" onclick="loginWithDemoAccount()">
+            <span class="instant-title">⚡ Entrar Agora na Plataforma (1 Clique)</span>
+            <span class="instant-sub">Acesso imediato com as 45 questões de APG, HAM, Fisiopatologia e Casos SOI III</span>
+          </button>
+
+          <div class="auth-divider"><span>OU ACESSE COM SUA CONTA</span></div>
+
+          <div class="auth-tabs" role="tablist">
+            <button type="button" class="auth-tab active" id="tab-login" onclick="switchAuthTab('login')">Fazer Login</button>
+            <button type="button" class="auth-tab" id="tab-register" onclick="switchAuthTab('register')">Criar Conta</button>
+          </div>
+
+          <form id="auth-form" onsubmit="handleAuthSubmit(event)">
+            <div id="register-fields" class="hidden">
+              <div class="field-group">
+                <label for="auth-name">Nome da(o) Estudante</label>
+                <input type="text" id="auth-name" placeholder="Ex: Lanna Maria Ribas Luz" autocomplete="name">
+              </div>
+              <div class="field-group">
+                <label for="auth-period">Etapa do Curso</label>
+                <select id="auth-period">
+                  <option value="2º Período — Medicina (APG & HAM)" selected>2º Período — Medicina (APG &amp; HAM)</option>
+                  <option value="SOI III — Raciocínio Clínico Integrado">SOI III — Raciocínio Clínico Integrado</option>
+                  <option value="Ciclo Clínico / Internato">Ciclo Clínico / Internato</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="field-group">
+              <label for="auth-email">E-mail Acadêmico</label>
+              <input type="email" id="auth-email" required value="estudante@synapsemd.edu.br" autocomplete="email">
+            </div>
+
+            <div class="field-group">
+              <label for="auth-password">Senha</label>
+              <input type="password" id="auth-password" required value="Synapse2026!" autocomplete="current-password">
+            </div>
+
+            <div id="auth-error" class="auth-error hidden" role="alert"></div>
+
+            <button type="submit" class="btn-violet-primary" id="auth-submit-btn">
+              Entrar na Synapse MD
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====================================================================
+       AMBIENTE PRINCIPAL DA PLATAFORMA (DESPOLUÍDO E MOBILE-FIRST)
+       ==================================================================== -->
+  <div id="app-shell" class="app-shell hidden">
+    <!-- Menu Lateral (Desktop) -->
+    <aside class="sidebar" aria-label="Navegação Principal">
+      <div class="sidebar-brand">
+        <svg width="42" height="30" viewBox="0 0 120 80" fill="none" aria-hidden="true">
+          <path d="M10 12 C30 25, 42 33, 54 40 C42 47, 30 55, 10 68" stroke="#38bdf8" stroke-width="7" stroke-linecap="round"/>
+          <path d="M110 12 C90 25, 78 33, 66 40 C78 47, 90 55, 110 68" stroke="#a855f7" stroke-width="7" stroke-linecap="round"/>
+          <circle cx="60" cy="40" r="7" fill="#ffffff"/>
+        </svg>
+        <div>
+          <div class="sidebar-title">SYNAPSE <span>MD</span></div>
+          <div class="sidebar-subtitle">APRENDA • PRATIQUE • EVOLUA</div>
+        </div>
+      </div>
+
+      <nav class="sidebar-nav" aria-label="Módulos">
+        <button type="button" class="nav-item active" data-view="mentor" onclick="switchModule('mentor')">
+          <span class="nav-icon">💬</span>
+          <div class="nav-text">
+            <strong>Estudar &amp; Mentor IA</strong>
+            <small>Chat Socrático + 45 Questões</small>
+          </div>
+        </button>
+
+        <button type="button" class="nav-item" data-view="apg" onclick="switchModule('apg')">
+          <span class="nav-icon">📚</span>
+          <div class="nav-text">
+            <strong>Roteiro APG &amp; HAM</strong>
+            <small>Anatomia, Fisio e Semiologia</small>
+          </div>
+        </button>
+
+        <button type="button" class="nav-item" data-view="reviews" onclick="switchModule('reviews')">
+          <span class="nav-icon">🩺</span>
+          <div class="nav-text">
+            <strong>Casos Clínicos &amp; Quiz</strong>
+            <small>SOI III e Simulação Ativa</small>
+          </div>
+        </button>
+
+        <button type="button" class="nav-item" data-view="memory" onclick="switchModule('memory')">
+          <span class="nav-icon">🎯</span>
+          <div class="nav-text">
+            <strong>Lacunas &amp; Evolução</strong>
+            <small>Seu Progresso e Revisões</small>
+          </div>
+        </button>
+
+        <button type="button" class="nav-item" data-view="materials" onclick="switchModule('materials')">
+          <span class="nav-icon">📁</span>
+          <div class="nav-text">
+            <strong>Materiais de Apoio</strong>
+            <small>Apostilas e PDFs do Grupo</small>
+          </div>
+        </button>
+      </nav>
+
+      <!-- Créditos do Grupo na Barra Lateral -->
+      <div class="sidebar-group-box">
+        <div class="sidebar-group-title">GRUPO SYNAPSE MD</div>
+        <ul>
+          <li>Lanna Maria Ribas Luz</li>
+          <li>Laura Meira Porto</li>
+          <li>Mariane Gomes Bandeira</li>
+          <li>Thaís Silva Nolasco</li>
+        </ul>
+      </div>
+
+      <div class="sidebar-footer">
+        <div class="student-badge">
+          <div class="student-avatar" id="user-avatar">LM</div>
+          <div class="student-meta">
+            <strong id="user-name-display">Lanna Maria Ribas Luz</strong>
+            <span id="user-period-display">Medicina — APG &amp; SOI III</span>
+          </div>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Conteúdo Principal -->
+    <main class="workspace">
+      <!-- Barra Superior Limpa e Responsiva -->
+      <header class="workspace-header">
+        <div class="header-title-block">
+          <span class="section-eyebrow" id="current-module-eyebrow">MODO: APG • HAM • FISIOPATOLOGIA • SOI III</span>
+          <h2 class="section-heading" id="current-module-title">Estudar com a Synapse MD</h2>
+        </div>
+
+        <div class="header-controls">
+          <button type="button" class="theme-toggle-btn" onclick="toggleTheme()" aria-label="Alternar Tema Claro ou Escuro">
+            <span id="app-theme-icon">☀️</span>
+            <span id="app-theme-label">Tema Claro</span>
+          </button>
+          <button type="button" class="btn-logout" onclick="logoutStudent()" title="Sair para a tela inicial">
+            Sair
+          </button>
+        </div>
+      </header>
+
+      <!-- ================================================================
+           MÓDULO 1: ESTUDAR & CHAT MENTOR (INSPIRADO NO SLIDE 5)
+           ================================================================ -->
+      <section id="view-mentor" class="module-view">
+        <div class="mentor-layout">
+          <div class="chat-panel">
+            <!-- Seletor de Tópico Organizado com todo o Material de Apoio -->
+            <div class="chat-toolbar">
+              <div class="topic-selector-wrap">
+                <label for="chat-apg-topic">Modo / Tema de Estudo:</label>
+                <select id="chat-apg-topic" onchange="onSelectTopicFromDropdown(this.value)">
+                  <optgroup label="📘 APG — Morfofisiologia (2º Período: Guyton, Moore, Netter, Snell)">
+                    <option value="1. Sistema Nervoso Central — Organização Anatômica e Funcional">1. SNC — Organização Anatômica (Encéfalo e Medula)</option>
+                    <option value="2. Sistema Nervoso Periférico — Nervos Cranianos, Espinais e Vias">2. SNP — Nervos Cranianos, Espinais e Vias Aferentes/Eferentes</option>
+                    <option value="3. Neurofisiologia — Potencial de Ação e Transmissão Sináptica">3. Neurofisiologia — Potencial de Ação e Sinapses</option>
+                    <option value="4. Sistema Sensorial — Visão e Fototransdução Retiniana">4. Sistema Sensorial — Visão (Olho, Retina e Córtex Visual)</option>
+                    <option value="5. Sistema Sensorial — Audição e Equilíbrio (Orelha e Labirinto)">5. Sistema Sensorial — Audição e Equilíbrio (Orelha e Cóclea)</option>
+                    <option value="6. Sistema Geniturinário — Anatomia e Fisiologia Renal (Formação da Urina)">6. Sistema Geniturinário — Anatomia e Fisiologia Renal (Néfron)</option>
+                    <option value="7. Sistema Reprodutor Feminino — Anatomia, Histologia e Ciclo Menstrual">7. Reprodutor Feminino — Anatomia e Ciclo Menstrual (Eixo HHO)</option>
+                    <option value="8. Sistema Reprodutor Masculino — Anatomia, Espermatogênese e Testosterona">8. Reprodutor Masculino — Espermatogênese e Testosterona</option>
+                  </optgroup>
+                  <optgroup label="🩺 HAM — Habilidades Médicas & Semiologia (Bates / Prática)">
+                    <option value="9 & 14. HAM — Exame Neurológico (Motricidade, Reflexos, Coordenação e Caso de Ataxia)">9 &amp; 14. Exame Neurológico Motor, Reflexos e Caso de Equilíbrio</option>
+                    <option value="10. HAM — Exame Semiológico dos 12 Pares de Nervos Cranianos">10. Exame Semiológico dos 12 Pares de Nervos Cranianos</option>
+                    <option value="11. HAM — Exame Geniturinário Feminino (Inspeção, Especular e Toque Bimanual)">11. Exame Ginecológico Completo (Inspeção, Especular e Toque)</option>
+                    <option value="12 & 15. HAM — Cateterismo Vesical de Demora (Técnica Asséptica e Caso Clínico)">12 &amp; 15. Cateterismo Vesical de Demora (Técnica e Caso Simulado)</option>
+                    <option value="13. HAM — Suporte Básico de Vida (SBV / BLS) e Uso do DEA na PCR">13. Suporte Básico de Vida (SBV / RCP 30:2 e Uso do DEA)</option>
+                  </optgroup>
+                  <optgroup label="⚡ Fisiologia Médica — 10 Questões Fundamentais">
+                    <option value="Fisiologia 01 — Sistema de Condução Elétrica do Coração e Sincronia Atrioventricular">Fisio 01 — Sistema de Condução Elétrica do Coração</option>
+                    <option value="Fisiologia 02 & 07 — Mecânica Ventilatória (Pressões) e Troca Gasosa Alveolar (Hematose)">Fisio 02 &amp; 07 — Troca Gasosa Alveolar e Pressões na Inspiração/Expiração</option>
+                    <option value="Fisiologia 03 & 04 — Sistema Linfático (Equilíbrio Hídrico) e Termorregulação Cutânea">Fisio 03 &amp; 04 — Sistema Linfático e Termorregulação pela Pele</option>
+                    <option value="Fisiologia 05 & 10 — Insulina vs Glucagon na Glicemia e Bioenergética (Glicólise e ATP)">Fisio 05 &amp; 10 — Insulina/Glucagon e Papel da Glicólise (ATP)</option>
+                    <option value="Fisiologia 06, 08 & 09 — Eritropoiese (EPO), Linfócitos B e T e Hemostasia (Plaquetas e Coagulação)">Fisio 06, 08 &amp; 09 — Eritropoiese (EPO), Linfócitos B/T e Hemostasia</option>
+                  </optgroup>
+                  <optgroup label="🔬 Fisiopatologia & Clínica — 10 Questões">
+                    <option value="Fisiopatologia 01 & 02 — Disfunção do EEI na DRGE e H. pylori no Câncer Gástrico" selected>Fisiopato 01 &amp; 02 — Disfunção do EEI (DRGE) e H. pylori no Câncer Gástrico</option>
+                    <option value="Fisiopatologia 03 & 04 — Alergia IgE vs Intolerância Alimentar e Doença de Crohn vs Retocolite Ulcerativa">Fisiopato 03 &amp; 04 — Alergia IgE vs Intolerância e Crohn vs Retocolite</option>
+                    <option value="Fisiopatologia 05, 06 & 07 — Giardíase, Mecanismos da Diarreia e Sinais de Obstrução Intestinal">Fisiopato 05, 06 &amp; 07 — Giardíase, Diarreias e Obstrução Intestinal</option>
+                    <option value="Fisiopatologia 08, 09 & 10 — Cirrose e Hipertensão Portal, Nefrítica vs Nefrótica e Câncer de Mama">Fisiopato 08, 09 &amp; 10 — Cirrose/Hipertensão Portal, Nefrítica vs Nefrótica e Ca de Mama</option>
+                  </optgroup>
+                  <optgroup label="🏥 SOI III — 10 Questões de Raciocínio Clínico (Casos Integrados)">
+                    <option value="SOI III Caso 01 — Hipertensão Arterial e Emergência Hipertensiva (Lesão de Órgãos-Alvo)">SOI III Caso 01 — Emergência Hipertensiva e Lesão de Órgãos-Alvo</option>
+                    <option value="SOI III Caso 02 — Dor Torácica: Síndrome Coronariana Aguda, Choque e Diagnóstico Diferencial">SOI III Caso 02 — Dor Torácica, SCA e Cuidados na Hipotensão</option>
+                    <option value="SOI III Casos 03 & 04 — Dispneia Aguda (IC vs DPOC/Asma) e Tromboembolismo Pulmonar (TVP/TEP)">SOI III Casos 03 &amp; 04 — Dispneia Aguda e Tromboembolismo Pulmonar (TVP/TEP)</option>
+                    <option value="SOI III Casos 05 & 06 — Endocardite Infecciosa (Sopro + Febre) e Emergências Hematológicas (Leucemia)">SOI III Casos 05 &amp; 06 — Endocardite Infecciosa e Leucemia Aguda</option>
+                    <option value="SOI III Casos 07 & 08 — Arboviroses vs Malária (Sinais de Alarme) e Tosse Crônica (TB vs Câncer de Pulmão)">SOI III Casos 07 &amp; 08 — Dengue/Malária e Tuberculose vs Neoplasia Pulmonar</option>
+                    <option value="SOI III Casos 09 & 10 — Lesões Cutâneas (Melanoma, Hanseníase, Celulite) e Doença de Chagas / Saúde Indígena">SOI III Casos 09 &amp; 10 — Melanoma/Hanseníase e Doença de Chagas / Saúde Indígena</option>
+                  </optgroup>
+                </select>
+              </div>
+            </div>
+
+            <!-- Pílulas de Ação Direcionada (Iguais ao Slide 5: Entender fisiopatologia | Revisar tratamento | Caso clínico | Resumo estruturado) -->
+            <div class="slide-action-pills" aria-label="Ações rápidas de estudo">
+              <button type="button" class="action-pill active-pill" onclick="triggerTopicAction('fisiopatologia')">
+                🧠 Entender Mecanismo &amp; Fisiopatologia
+              </button>
+              <button type="button" class="action-pill" onclick="triggerTopicAction('anatomia')">
+                🔬 Anatomia, Histologia &amp; Fisiologia
+              </button>
+              <button type="button" class="action-pill" onclick="triggerTopicAction('conduta')">
+                💊 Diagnóstico &amp; Conduta Clínica
+              </button>
+              <button type="button" class="action-pill" onclick="triggerTopicAction('caso')">
+                🩺 Testar em Caso Clínico
+              </button>
+            </div>
+
+            <!-- Área de Mensagens do Chat -->
+            <div id="chat-messages" class="chat-messages" role="log" aria-live="polite"></div>
+
+            <!-- Barra de Pergunta -->
+            <form class="chat-composer" onsubmit="handleChatSubmit(event)">
+              <input
+                type="text"
+                id="chat-input"
+                placeholder="Pergunte, explique seu raciocínio ou escolha uma questão no seletor acima..."
+                required
+              >
+              <button type="submit" class="btn-send" id="chat-send-btn" aria-label="Enviar mensagem">
+                <span>Enviar</span>
+                <span aria-hidden="true">➤</span>
+              </button>
+            </form>
+          </div>
+
+          <!-- Coluna Lateral (Igual ao Slide 5: Fontes Utilizadas + Medidor Circular 62%) -->
+          <aside class="evidence-sidebar" aria-label="Fontes Utilizadas e Progresso">
+            <div class="sidebar-card">
+              <div class="card-kicker">EVIDENCE FIRST™ // ZERO WIKIPÉDIA</div>
+              <h3>Fontes Utilizadas</h3>
+              <div id="chat-references-list" class="references-list"></div>
+              <div class="epistemic-box" style="margin-top:0.85rem;">
+                <strong>Nível de Evidência &amp; Transparência:</strong>
+                <span id="ev-limitations">Priorizando Guyton &amp; Hall, Moore, Netter, Tortora, Snell, Bates, Robbins e Diretrizes Médicas.</span>
+              </div>
+            </div>
+
+            <!-- Medidor Circular de Progresso igual ao Slide 5 -->
+            <div class="sidebar-card progress-ring-card">
+              <div class="card-kicker">MEMÓRIA EDUCACIONAL</div>
+              <h3>Seu Progresso</h3>
+              <div class="progress-ring-wrap">
+                <div class="circular-progress" id="circular-progress-ring">
+                  <span class="progress-value" id="circular-progress-value">72%</span>
+                </div>
+                <div class="progress-info">
+                  <strong id="progress-topic-label">Roteiro APG &amp; SOI III</strong>
+                  <span id="progress-sub-label">45 tópicos disponíveis na base</span>
+                </div>
+              </div>
+            </div>
+          </aside>
+        </div>
+      </section>
+
+      <!-- ================================================================
+           MÓDULO 2: ROTEIRO APG & HAM (BANCO DE QUESTÕES + 5 EIXOS)
+           ================================================================ -->
+      <section id="view-apg" class="module-view hidden">
+        <!-- Seletor de Todas as 45 Questões Divididas por Caderno -->
+        <div class="apg-header-card">
+          <div class="card-kicker">MATERIAL DE APOIO INTEGRADO // ESCOLHA O TEMA</div>
+          <h3 style="margin-bottom:0.75rem;">Banco de Questões Norteadoras (APG 2º Período, HAM, Fisiopatologia e SOI III)</h3>
+
+          <div class="tracks-filter-bar" role="tablist">
+            <button type="button" class="track-btn active" onclick="filterQuestionCards('ALL', this)">Todos os Temas</button>
+            <button type="button" class="track-btn" onclick="filterQuestionCards('APG', this)">1. APG Morfofisiologia (8)</button>
+            <button type="button" class="track-btn" onclick="filterQuestionCards('HAM', this)">2. HAM &amp; Semiologia (7)</button>
+            <button type="button" class="track-btn" onclick="filterQuestionCards('Fisiologia', this)">3. Fisiologia (10)</button>
+            <button type="button" class="track-btn" onclick="filterQuestionCards('Fisiopatologia', this)">4. Fisiopatologia (10)</button>
+            <button type="button" class="track-btn" onclick="filterQuestionCards('SOI III', this)">5. Casos SOI III (10)</button>
+          </div>
+
+          <div id="catalog-cards-list" class="catalog-cards-list"></div>
+        </div>
+
+        <!-- Cadeia Visual dos 5 Eixos -->
+        <div class="synaptic-chain-nav" aria-label="Cinco Eixos Clínicos">
+          <div class="chain-step"><span>01</span> Anatomia</div>
+          <div class="chain-connector"></div>
+          <div class="chain-step"><span>02</span> Fisiologia / Histologia</div>
+          <div class="chain-connector"></div>
+          <div class="chain-step"><span>03</span> Fisiopatologia / Semiologia</div>
+          <div class="chain-connector"></div>
+          <div class="chain-step"><span>04</span> Diagnóstico / Técnica</div>
+          <div class="chain-connector"></div>
+          <div class="chain-step"><span>05</span> Conduta &amp; Aplicação</div>
+        </div>
+
+        <div id="apg-axes-grid" class="apg-axes-grid"></div>
+
+        <div id="apg-socratic-banner" class="socratic-banner"></div>
+      </section>
+
+      <!-- ================================================================
+           MÓDULO 3: CASOS CLÍNICOS & APRENDIZAGEM ATIVA (SOI III & APG)
+           ================================================================ -->
+      <section id="view-reviews" class="module-view hidden">
+        <div class="reviews-top-bar">
+          <div>
+            <div class="card-kicker">SIMULAÇÃO E DECISÃO CLÍNICA</div>
+            <h3>Treinamento de Raciocínio Clínico &amp; Revisão Ativa</h3>
+            <p class="muted-text" style="margin-bottom:0;">Escolha o caso clínico ou tema abaixo, marque sua conduta e veja o debriefing fundamentado nas diretrizes.</p>
+          </div>
+          <div class="reviews-controls">
+            <select id="review-topic-select" onchange="loadNewReviewQuestion(this.value)" aria-label="Escolher tema da questão"></select>
+            <button type="button" class="btn-violet-sm" onclick="loadNewReviewQuestion()">
+              Sortear Outro Caso
+            </button>
+          </div>
+        </div>
+
+        <div id="review-question-container" class="review-card"></div>
+      </section>
+
+      <!-- ================================================================
+           MÓDULO 4: LACUNAS & MEMÓRIA EDUCACIONAL
+           ================================================================ -->
+      <section id="view-memory" class="module-view hidden">
+        <div class="memory-kpi-row" id="memory-kpi-row"></div>
+
+        <div class="memory-grid">
+          <div class="memory-panel">
+            <div class="card-kicker">RETENÇÃO DE CONTEÚDO</div>
+            <h3>Tópicos Estudados &amp; Domínio</h3>
+            <div id="memory-topics-list" class="memory-list"></div>
+          </div>
+
+          <div class="memory-panel">
+            <div class="card-kicker">SUAS LACUNAS IDENTIFICADAS</div>
+            <h3>Pontos para Reforçar &amp; Plano de Estudo</h3>
+            <div id="memory-difficulties-list" class="memory-list"></div>
+            <h4 class="sub-heading">Sugestões de Revisão Espaçada</h4>
+            <div id="memory-suggestions-list" class="memory-list"></div>
+          </div>
+
+          <div class="memory-panel full-span">
+            <div class="card-kicker">HISTÓRICO DE EVOLUÇÃO</div>
+            <h3>Atividades Realizadas</h3>
+            <div id="memory-activities-list" class="activities-timeline"></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================================================================
+           MÓDULO 5: MATERIAIS DE APOIO (PDFs E ROTEIROS DO GRUPO)
+           ================================================================ -->
+      <section id="view-materials" class="module-view hidden">
+        <div class="materials-layout">
+          <div class="materials-list-card">
+            <div class="card-kicker">ACERVO OFICIAL DO GRUPO</div>
+            <h3>Cadernos e Roteiros Indexados na IA</h3>
+            <div id="materials-list" class="materials-list"></div>
+          </div>
+
+          <div class="materials-upload-card">
+            <div class="card-kicker">ADICIONAR NOVO MATERIAL</div>
+            <h3>Enviar PDF ou Resumo de APG</h3>
+            <p class="muted-text">
+              Adicione novos roteiros em PDF ou anotações de tutoria para ampliar a base do grupo.
+            </p>
+
+            <form id="material-upload-form" onsubmit="handleMaterialUpload(event)">
+              <div class="field-group">
+                <label for="mat-title">Título do Material</label>
+                <input type="text" id="mat-title" required placeholder="Ex: Resumo APG — Fisiologia Renal">
+              </div>
+
+              <div class="field-group">
+                <label for="mat-file">Arquivo PDF (.pdf opcional)</label>
+                <input type="file" id="mat-file" accept="application/pdf,.pdf">
+              </div>
+
+              <div class="field-group">
+                <label for="mat-notes">Ou cole o texto / resumo da aula</label>
+                <textarea id="mat-notes" rows="4" placeholder="Cole aqui as anotações ou perguntas da APG..."></textarea>
+              </div>
+
+              <div id="mat-feedback" class="auth-error hidden"></div>
+
+              <button type="submit" class="btn-violet-primary" id="mat-submit-btn">
+                Salvar Material na Plataforma
+              </button>
+            </form>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- ================================================================
+         BARRA DE NAVEGAÇÃO INFERIOR PARA CELULAR (MOBILE BOTTOM NAV)
+         ================================================================ -->
+    <nav class="mobile-bottom-nav" aria-label="Navegação Mobile">
+      <button type="button" class="mob-nav-btn active" data-view="mentor" onclick="switchModule('mentor')">
+        <span class="mob-icon">💬</span>
+        <span>Mentor IA</span>
+      </button>
+      <button type="button" class="mob-nav-btn" data-view="apg" onclick="switchModule('apg')">
+        <span class="mob-icon">📚</span>
+        <span>APG &amp; HAM</span>
+      </button>
+      <button type="button" class="mob-nav-btn" data-view="reviews" onclick="switchModule('reviews')">
+        <span class="mob-icon">🩺</span>
+        <span>Casos</span>
+      </button>
+      <button type="button" class="mob-nav-btn" data-view="memory" onclick="switchModule('memory')">
+        <span class="mob-icon">🎯</span>
+        <span>Progresso</span>
+      </button>
+      <button type="button" class="mob-nav-btn" data-view="materials" onclick="switchModule('materials')">
+        <span class="mob-icon">📁</span>
+        <span>Materiais</span>
+      </button>
+    </nav>
+  </div>
+
+  <script src="synapse-engine.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
