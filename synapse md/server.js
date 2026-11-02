@@ -199,7 +199,7 @@ function loadDb() {
     users: [
       {
         id: demoUserId,
-        name: 'Lanna Maria Ribas Luz (Grupo Synapse MD)',
+        name: 'Estudante',
         email: 'estudante@synapsemd.edu.br',
         period: 'Medicina — APG / HAM / SOI III',
         passwordHash: hashPassword('Synapse2026!'),
@@ -217,7 +217,7 @@ function loadDb() {
           title: 'Caderno 01 — 15 Perguntas APG & HAM (2º Período: Guyton, Moore, Netter, Tortora, Snell e Bates)',
           fileName: 'roteiro-apg-ham-2periodo.pdf',
           mimeType: 'application/pdf',
-          extractedText: 'Roteiro oficial do grupo (Lanna Maria Ribas Luz, Laura Meira Porto, Mariane Gomes Bandeira, Thaís Silva Nolasco): 8 perguntas de APG (SNC, SNP, Potencial de Ação e Sinapses, Visão, Audição e Equilíbrio, Fisiologia Renal, Reprodutor Feminino e Masculino), 5 perguntas de HAM (Exame Neurológico Motor e Reflexos, 12 Pares de Nervos Cranianos, Exame Ginecológico, Cateterismo Vesical de Demora e Suporte Básico de Vida/DEA) e 2 Casos Clínicos Simulados.',
+          extractedText: 'Roteiro acadêmico de estudos: 8 perguntas de APG (SNC, SNP, Potencial de Ação e Sinapses, Visão, Audição e Equilíbrio, Fisiologia Renal, Reprodutor Feminino e Masculino), 5 perguntas de HAM (Exame Neurológico Motor e Reflexos, 12 Pares de Nervos Cranianos, Exame Ginecológico, Cateterismo Vesical de Demora e Suporte Básico de Vida/DEA) e 2 Casos Clínicos Simulados.',
           createdAt: new Date().toISOString()
         },
         {
@@ -429,7 +429,7 @@ function createSynapseServer() {
             const guessedName = email.split('@')[0].replace(/[._-]/g, ' ');
             user = {
               id: `usr-${crypto.randomUUID()}`,
-              name: guessedName.charAt(0).toUpperCase() + guessedName.slice(1) + ' (Grupo Synapse MD)',
+              name: guessedName.charAt(0).toUpperCase() + guessedName.slice(1),
               email,
               period: '2º Período — Medicina (APG & SOI III)',
               passwordHash: hashPassword(password),

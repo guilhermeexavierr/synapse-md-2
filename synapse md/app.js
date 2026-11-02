@@ -1,6 +1,5 @@
 /**
- * SYNAPSE MD — Frontend Controller (Versão Dia 2)
- * Grupo: Lanna Maria Ribas Luz, Laura Meira Porto, Mariane Gomes Bandeira, Thaís Silva Nolasco
+ * SYNAPSE MD — Frontend Controller
  * Suporta operação híbrida: Servidor Node (http://localhost:3000) OU modo direto (file:// / Live Server)
  */
 
@@ -89,7 +88,7 @@ function createDefaultLocalMaterials() {
       type: 'PDF Acadêmico',
       uploadedAt: '2026-10-27',
       excerpt:
-        'Roteiro oficial do grupo (Lanna Maria Ribas Luz, Laura Meira Porto, Mariane Gomes Bandeira, Thaís Silva Nolasco): 8 perguntas de APG (SNC, SNP, Potencial de Ação e Sinapses, Visão, Audição e Equilíbrio, Fisiologia Renal, Reprodutor Feminino e Masculino), 5 perguntas de HAM (Exame Neurológico Motor e Reflexos, 12 Pares de Nervos Cranianos, Exame Ginecológico, Cateterismo Vesical de Demora e Suporte Básico de Vida/DEA) e 2 Casos Clínicos Simulados.'
+        'Roteiro acadêmico de estudos: 8 perguntas de APG (SNC, SNP, Potencial de Ação e Sinapses, Visão, Audição e Equilíbrio, Fisiologia Renal, Reprodutor Feminino e Masculino), 5 perguntas de HAM (Exame Neurológico Motor e Reflexos, 12 Pares de Nervos Cranianos, Exame Ginecológico, Cateterismo Vesical de Demora e Suporte Básico de Vida/DEA) e 2 Casos Clínicos Simulados.'
     },
     {
       id: 'mat-demo-2',
@@ -217,7 +216,7 @@ async function handleOfflineRequest(endpoint, options = {}) {
 
   if (endpoint === '/api/auth/login' || endpoint === '/api/auth/register' || endpoint === '/api/auth/demo') {
     const email = (body.email || 'estudante@synapsemd.edu.br').trim();
-    const name = body.name || 'Lanna Maria Ribas Luz (Grupo Synapse MD)';
+    const name = body.name || 'Estudante';
     const period = body.period || 'Medicina — APG / HAM / SOI III';
     const user = { id: 'usr-local', name, email, period };
     return { token: 'local-synapse-token', user };
@@ -227,7 +226,7 @@ async function handleOfflineRequest(endpoint, options = {}) {
     return {
       user: state.user || {
         id: 'usr-local',
-        name: 'Lanna Maria Ribas Luz (Grupo Synapse MD)',
+        name: 'Estudante',
         email: 'estudante@synapsemd.edu.br',
         period: 'Medicina — APG / HAM / SOI III'
       },
@@ -347,7 +346,7 @@ async function handleAuthSubmit(event) {
   try {
     const endpoint = state.authMode === 'register' ? '/api/auth/register' : '/api/auth/login';
     const payload = state.authMode === 'register'
-      ? { name: name || 'Lanna Maria Ribas Luz (Grupo Synapse MD)', email, password, period }
+      ? { name: name || 'Estudante', email, password, period }
       : { email, password };
 
     const data = await apiFetch(endpoint, {
@@ -357,7 +356,7 @@ async function handleAuthSubmit(event) {
 
     state.token = data.token || 'synapse-session-token';
     state.user = data.user || {
-      name: name || 'Lanna Maria Ribas Luz (Grupo Synapse MD)',
+      name: name || 'Estudante',
       email,
       period
     };
@@ -368,7 +367,7 @@ async function handleAuthSubmit(event) {
     console.warn('Usando acesso direto de contingência:', err.message);
     state.token = 'synapse-demo-fallback-token';
     state.user = {
-      name: name || 'Lanna Maria Ribas Luz (Grupo Synapse MD)',
+      name: name || 'Estudante',
       email: email || 'estudante@synapsemd.edu.br',
       period: period || 'Medicina — APG / HAM / SOI III'
     };
@@ -415,7 +414,7 @@ async function bootstrapWorkspace() {
       state.user = profileData.user;
     } else if (!state.user) {
       state.user = {
-        name: 'Lanna Maria Ribas Luz (Grupo Synapse MD)',
+        name: 'Estudante',
         email: 'estudante@synapsemd.edu.br',
         period: 'Medicina — APG / HAM / SOI III'
       };
@@ -600,7 +599,7 @@ function renderInitialMentorMessage() {
     role: 'assistant',
     topic: state.currentApgTopic,
     explanation:
-      `Olá! Bem-vinda(o) à **SYNAPSE MD** — versão oficial com todo o material de apoio do grupo (**Lanna Maria Ribas Luz**, **Laura Meira Porto**, **Mariane Gomes Bandeira** e **Thaís Silva Nolasco**).\n\n` +
+      `Olá! Bem-vinda(o) à **SYNAPSE MD** — plataforma acadêmica de aprendizagem médica ativa.\n\n` +
       `Aqui você tem acesso imediato a **todas as 45 questões e casos clínicos**:\n` +
       `• **APG 2º Período (8 temas):** SNC, SNP, Potencial de Ação/Sinapses, Visão, Audição/Equilíbrio, Renal, Reprodutor Feminino e Masculino.\n` +
       `• **HAM — Habilidades Médicas (7 temas e casos):** Exame Neurológico Motor/Ataxia, 12 Pares Cranianos, Exame Ginecológico, Cateterismo Vesical de Demora e SBV/DEA.\n` +
@@ -614,7 +613,7 @@ function renderInitialMentorMessage() {
     references: [
       {
         source: 'Guyton & Hall / Moore / Netter / Bates / Robbins & Cotran',
-        title: 'Bibliografia Oficial Integrada — Grupo Synapse MD (45 Questões)',
+        title: 'Bibliografia Oficial Integrada — Synapse MD (45 Questões)',
         year: 2026,
         evidenceLevel: 'Alto (Livros-Texto de Referência e Diretrizes Médicas)',
         url: 'https://pubmed.ncbi.nlm.nih.gov/'
