@@ -26,7 +26,7 @@ O **Synapse MD** é uma plataforma acadêmica de inteligência artificial voltad
 
 ## 📚 Material de Apoio Integrado (45 Questões e Casos Clínicos)
 
-- **📘 APG — Morfofisiologia (2º Período — 8 Temas):** SNC, SNP, Potencial de Ação e Sinapses, Visão, Audição e Equilíbrio, Anatomia e Fisiologia Renal, Sistema Reprodutor Feminino (Ciclo Menstrual) e Masculino (Espermatogênese).
+- **📘 APG — Morfofisiologia (8 Temas):** SNC, SNP, Potencial de Ação e Sinapses, Visão, Audição e Equilíbrio, Anatomia e Fisiologia Renal, Sistema Reprodutor Feminino (Ciclo Menstrual) e Masculino (Espermatogênese).
 - **🩺 HAM — Habilidades Médicas & Semiologia (7 Questões e Casos):** Exame Neurológico Motor/Reflexos e Caso de Ataxia, Exame dos 12 Pares de Nervos Cranianos, Exame Ginecológico Completo, Cateterismo Vesical de Demora (Técnica + Caso Simulado) e Suporte Básico de Vida (SBV/DEA).
 - **⚡ Fisiologia Médica (10 Questões):** Condução Elétrica Cardíaca, Troca Gasosa Alveolar, Sistema Linfático, Termorregulação Cutânea, Insulina vs. Glucagon, Eritropoiese e EPO, Pressões Respiratórias, Linfócitos B e T, Hemostasia e Glicólise/ATP.
 - **🔬 Fisiopatologia & Clínica (10 Questões):** Disfunção do EEI na DRGE, *H. pylori* e Câncer Gástrico, Alergia IgE vs. Intolerância Alimentar, Doença de Crohn vs. Retocolite Ulcerativa, Giardíase, Mecanismos da Diarreia, Sinais de Obstrução Intestinal, Cirrose e Hipertensão Portal, Síndrome Nefrítica vs. Nefrótica e Receptores Hormonais no Câncer de Mama.

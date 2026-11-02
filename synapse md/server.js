@@ -121,7 +121,7 @@ function createInitialMemory(seedDemoData = false) {
       },
       {
         topic: '1. Sistema Nervoso Central — Organização Anatômica e Funcional',
-        specialty: 'Neuroanatomia & Neurofisiologia (2º Período)',
+        specialty: 'Neuroanatomia & Neurofisiologia (APG)',
         mastery: 80,
         sessionsCount: 2,
         lastStudiedAt: now
@@ -156,7 +156,7 @@ function createInitialMemory(seedDemoData = false) {
         id: 'rev-demo-2',
         topic: '6. Sistema Geniturinário — Anatomia e Fisiologia Renal (Formação da Urina)',
         subtopic: 'Filtração Glomerular, Reabsorção no TCP e Ação do ADH/Aldosterona',
-        reason: 'Revisão estruturada do roteiro de APG do 2º Período',
+        reason: 'Revisão estruturada do roteiro de APG',
         urgency: 'Sugerida'
       }
     ],
@@ -214,8 +214,8 @@ function loadDb() {
         {
           id: 'mat-demo-1',
           userId: demoUserId,
-          title: 'Caderno 01 — 15 Perguntas APG & HAM (2º Período: Guyton, Moore, Netter, Tortora, Snell e Bates)',
-          fileName: 'roteiro-apg-ham-2periodo.pdf',
+          title: 'Caderno 01 — 15 Perguntas APG & HAM (Guyton, Moore, Netter, Tortora, Snell e Bates)',
+          fileName: 'roteiro-apg-ham-integrado.pdf',
           mimeType: 'application/pdf',
           extractedText: 'Roteiro acadêmico de estudos: 8 perguntas de APG (SNC, SNP, Potencial de Ação e Sinapses, Visão, Audição e Equilíbrio, Fisiologia Renal, Reprodutor Feminino e Masculino), 5 perguntas de HAM (Exame Neurológico Motor e Reflexos, 12 Pares de Nervos Cranianos, Exame Ginecológico, Cateterismo Vesical de Demora e Suporte Básico de Vida/DEA) e 2 Casos Clínicos Simulados.',
           createdAt: new Date().toISOString()
@@ -360,7 +360,7 @@ function createSynapseServer() {
           const name = String(body.name || '').trim();
           const email = String(body.email || '').trim().toLowerCase();
           const password = String(body.password || '');
-          const period = String(body.period || '2º Período — Medicina').trim();
+          const period = String(body.period || 'Ciclo Básico — Medicina (APG & HAM)').trim();
 
           if (!name || !email || !email.includes('@') || password.length < 6) {
             return sendJson(res, 400, {
@@ -431,7 +431,7 @@ function createSynapseServer() {
               id: `usr-${crypto.randomUUID()}`,
               name: guessedName.charAt(0).toUpperCase() + guessedName.slice(1),
               email,
-              period: '2º Período — Medicina (APG & SOI III)',
+              period: 'Medicina — APG / HAM / SOI III',
               passwordHash: hashPassword(password),
               createdAt: new Date().toISOString()
             };

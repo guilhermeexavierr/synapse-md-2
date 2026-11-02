@@ -19,11 +19,11 @@ const GROUP_MEMBERS = [
 // Catálogo Completo Organizado por Trilha Acadêmica (45 Tópicos do Material de Apoio)
 const CURATED_MEDICAL_KNOWLEDGE = [
   // ==========================================================================
-  // TRILHA 1: APG — MORFOFISIOLOGIA INTEGRADA (2º PERÍODO — 8 TEMAS DO PDF 1)
+  // TRILHA 1: APG — MORFOFISIOLOGIA INTEGRADA (8 TEMAS)
   // ==========================================================================
   {
     id: 'snc-organizacao',
-    category: 'APG — Morfofisiologia (2º Período)',
+    category: 'APG — Morfofisiologia',
     keywords: ['sistema nervoso central', 'snc', 'encéfalo', 'medula espinal', 'córtex', 'tronco encefálico', 'cerebelo', 'diencéfalo', ' substância cinzenta', 'substância branca'],
     title: '1. Sistema Nervoso Central — Organização Anatômica e Funcional',
     specialty: 'Neuroanatomia & Neurofisiologia (APG)',
@@ -37,7 +37,7 @@ const CURATED_MEDICAL_KNOWLEDGE = [
       histologia: 'Organiza-se em Substância Cinzenta (corpos celulares de neurônios, dendritos, sinapses e glia: astrócitos protoplasmáticos, micróglia), localizada na superfície cortical e nos núcleos profundos/H medular; e Substância Branca (feixes de axônios mielinizados por oligodendrócitos), formando tratos ascendentes (sensitivos), descendentes (motores) e comissuras (como o corpo caloso).',
       fisiologia: 'Controle Motor: córtex motor primário (giro pré-central, área 4) envia o trato corticoespinal (piramidal), modulado pelos núcleos da base (iniciação/seleção do movimento) e cerebelo (coordenação, equilíbrio e correção de erro motor). Controle Sensitivo: receptores periféricos ascendem pela medula (colunas dorsais-lemnisco medial para tato epicrítico/propriocepção; trato espinotalâmico para dor/temperatura), relé no tálamo (núcleo VPL/VPM) até o giro pós-central (córtex somatossensorial). Controle Autonômico: o hipotálamo e os núcleos do tronco encefálico (ex: núcleo do trato solitário e bulbo ventrolateral) integram reflexos viscerais simpáticos (T1-L2) e parassimpáticos (craniossacral).',
       diagnostico: 'Aplicação Clínica Básica: Lesões acima da decussação das pirâmides (bulbo caudal) causam hemiparesia contralateral com sinais de 1º neurônio motor (hipertonia elástica/espasticidade, hiperreflexia e sinal de Babinski). Lesões medulares produzem nível sensitivo e alterações esfincterianas.',
-      tratamento: 'Abordagem Semiológica: Na avaliação do 2º período, correlacionar sempre a topografia anatômica (córtex vs cápsula interna vs tronco vs medula) com o déficit motor, sensitivo ou autonômico observado no exame físico.'
+      tratamento: 'Abordagem Semiológica: Na avaliação semiológica, correlacionar sempre a topografia anatômica (córtex vs cápsula interna vs tronco vs medula) com o déficit motor, sensitivo ou autonômico observado no exame físico.'
     },
     socraticQuestion: 'Por que na medula espinal a substância branca fica por fora e a cinzenta por dentro (formando o "H" medular), enquanto no córtex cerebral essa disposição se inverte? Como a decussação das pirâmides no bulbo explica o lado paralisado após um AVC no hemisfério esquerdo?',
     references: [
@@ -50,7 +50,7 @@ const CURATED_MEDICAL_KNOWLEDGE = [
         id: 'q-snc-1',
         topic: 'Sistema Nervoso Central',
         subtopic: 'Organização Anatômica e Vias Motoras/Sensitivas',
-        vignette: 'Durante uma sessão de APG do 2º período, o grupo analisa o trajeto de um estímulo tátil fino (epicrítico) originado na mão direita e o comando motor voluntário para movimentar os dedos dessa mesma mão.',
+        vignette: 'Durante uma sessão de APG, o grupo analisa o trajeto de um estímulo tátil fino (epicrítico) originado na mão direita e o comando motor voluntário para movimentar os dedos dessa mesma mão.',
         question: 'Quais são, respectivamente, a estrutura diencefálica que atua como estação de retransmissão obrigatória da sensibilidade tátil antes de chegar ao giro pós-central e o local onde o trato corticoespinal lateral cruza para o lado oposto?',
         options: [
           'Hipotálamo anterior e corpo caloso.',
@@ -65,7 +65,7 @@ const CURATED_MEDICAL_KNOWLEDGE = [
   },
   {
     id: 'snp-organizacao',
-    category: 'APG — Morfofisiologia (2º Período)',
+    category: 'APG — Morfofisiologia',
     keywords: ['sistema nervoso periférico', 'snp', 'nervos cranianos', 'nervos espinais', 'vias aferentes', 'vias eferentes', 'gânglios', 'schwann'],
     title: '2. Sistema Nervoso Periférico — Nervos Cranianos, Espinais e Vias',
     specialty: 'Neuroanatomia & Fisiologia (APG)',
@@ -106,7 +106,7 @@ const CURATED_MEDICAL_KNOWLEDGE = [
   },
   {
     id: 'neurofisiologia-potencial',
-    category: 'APG — Morfofisiologia (2º Período)',
+    category: 'APG — Morfofisiologia',
     keywords: ['potencial de ação', 'sinapse', 'despolarização', 'repolarização', 'bomba de sódio', 'neurotransmissor', 'cálcio', 'condução saltatória', 'nodos de ranvier'],
     title: '3. Neurofisiologia — Potencial de Ação e Transmissão Sináptica',
     specialty: 'Fisiologia Celular & Neurofisiologia (APG)',
@@ -147,7 +147,7 @@ const CURATED_MEDICAL_KNOWLEDGE = [
   },
   {
     id: 'visao-sensorial',
-    category: 'APG — Morfofisiologia (2º Período)',
+    category: 'APG — Morfofisiologia',
     keywords: ['visão', 'olho', 'retina', 'cones', 'bastonetes', 'fototransdução', 'rodopsina', 'quiasma óptico', 'córtex visual', 'córnea', 'cristalino'],
     title: '4. Sistema Sensorial — Visão e Fototransdução Retiniana',
     specialty: 'Morfofisiologia Sensorial (APG)',
@@ -173,7 +173,7 @@ const CURATED_MEDICAL_KNOWLEDGE = [
         id: 'q-visao-1',
         topic: 'Sistema Sensorial — Visão',
         subtopic: 'Fototransdução e Via Óptica',
-        vignette: 'Um estudante do 2º período analisa como um feixe luminoso focado sobre a fóvea central é convertido em sinal neural e conduzido até o lobo occipital.',
+        vignette: 'Um estudante de medicina analisa como um feixe luminoso focado sobre a fóvea central é convertido em sinal neural e conduzido até o lobo occipital.',
         question: 'Qual evento bioquímico e eletrofisiológico ocorre nos fotorreceptores da retina imediatamente após a absorção de um fóton de luz pela rodopsina?',
         options: [
           'Aumento do AMPc intracelular, abertura dos canais de Na+ e despolarização rápida do fotorreceptor.',
@@ -188,7 +188,7 @@ const CURATED_MEDICAL_KNOWLEDGE = [
   },
   {
     id: 'audicao-equilibrio',
-    category: 'APG — Morfofisiologia (2º Período)',
+    category: 'APG — Morfofisiologia',
     keywords: ['audição', 'equilíbrio', 'orelha', 'cóclea', 'órgão de corti', 'vestibular', 'canais semicirculares', 'utrículo', 'sáculo', 'endolinfa', 'perilinfa'],
     title: '5. Sistema Sensorial — Audição e Equilíbrio (Orelha e Labirinto)',
     specialty: 'Morfofisiologia Sensorial (APG)',
@@ -229,7 +229,7 @@ const CURATED_MEDICAL_KNOWLEDGE = [
   },
   {
     id: 'anatomia-fisiologia-renal',
-    category: 'APG — Morfofisiologia (2º Período)',
+    category: 'APG — Morfofisiologia',
     keywords: ['rim', 'rins', 'néfron', 'filtração glomerular', 'reabsorção', 'secreção tubular', 'alça de henle', 'aldosterona', 'adh', 'urina', 'sistema geniturinário'],
     title: '6. Sistema Geniturinário — Anatomia e Fisiologia Renal (Formação da Urina)',
     specialty: 'Morfofisiologia Renal (APG)',
@@ -255,7 +255,7 @@ const CURATED_MEDICAL_KNOWLEDGE = [
         id: 'q-renal-1',
         topic: 'Sistema Geniturinário — Fisiologia Renal',
         subtopic: 'Filtração Glomerular e Transporte Tubular',
-        vignette: 'Um estudante do 2º período analisa o funcionamento dos diferentes segmentos do néfron durante um estado de privação hídrica prolongada (desidratação).',
+        vignette: 'Um estudante de medicina analisa o funcionamento dos diferentes segmentos do néfron durante um estado de privação hídrica prolongada (desidratação).',
         question: 'Qual segmento tubular é responsável pela reabsorção de 100% da glicose filtrada em condições fisiológicas e qual hormônio promove a inserção de canais de água (Aquaporina-2) na membrana luminal do ducto coletor para concentrar a urina?',
         options: [
           'Ramo ascendente espesso da alça de Henle e Peptídeo Natriurético Atrial (PNA).',
@@ -270,7 +270,7 @@ const CURATED_MEDICAL_KNOWLEDGE = [
   },
   {
     id: 'reprodutor-feminino',
-    category: 'APG — Morfofisiologia (2º Período)',
+    category: 'APG — Morfofisiologia',
     keywords: ['reprodutor feminino', 'ciclo menstrual', 'ciclo ovariano', 'ovulação', 'lh', 'fsh', 'estrogênio', 'progesterona', 'endométrio', 'útero', 'ovário', 'corpo lúteo'],
     title: '7. Sistema Reprodutor Feminino — Anatomia, Histologia e Ciclo Menstrual',
     specialty: 'Morfofisiologia Endócrino-Ginecológica (APG)',
@@ -311,7 +311,7 @@ const CURATED_MEDICAL_KNOWLEDGE = [
   },
   {
     id: 'reprodutor-masculino',
-    category: 'APG — Morfofisiologia (2º Período)',
+    category: 'APG — Morfofisiologia',
     keywords: ['reprodutor masculino', 'espermatogênese', 'testosterona', 'sertoli', 'leydig', 'testículo', 'epidídimo', 'ducto deferente', 'próstata', 'vesícula seminal'],
     title: '8. Sistema Reprodutor Masculino — Anatomia, Espermatogênese e Testosterona',
     specialty: 'Morfofisiologia Endócrino-Urológica (APG)',

@@ -16,7 +16,7 @@ function createDefaultLocalMemory() {
       },
       {
         topic: '1. Sistema Nervoso Central — Organização Anatômica e Funcional',
-        specialty: 'Morfofisiologia (APG 2º Período)',
+        specialty: 'Morfofisiologia (APG)',
         mastery: 76,
         sessionsCount: 2,
         lastStudiedAt: today
@@ -57,7 +57,7 @@ function createDefaultLocalMemory() {
         id: 'rev-2',
         topic: '6. Sistema Geniturinário — Anatomia e Fisiologia Renal (Formação da Urina)',
         subtopic: 'Filtração Glomerular, Reabsorção no TCP e Ação do ADH/Aldosterona',
-        reason: 'Revisão estruturada do roteiro de APG do 2º Período',
+        reason: 'Revisão estruturada do roteiro de APG',
         urgency: 'Sugerida'
       }
     ],
@@ -84,7 +84,7 @@ function createDefaultLocalMaterials() {
   return [
     {
       id: 'mat-demo-1',
-      title: 'Caderno 01 — 15 Perguntas APG & HAM (2º Período: Guyton, Moore, Netter, Tortora, Snell e Bates)',
+      title: 'Caderno 01 — 15 Perguntas APG & HAM (Guyton, Moore, Netter, Tortora, Snell e Bates)',
       type: 'PDF Acadêmico',
       uploadedAt: '2026-10-27',
       excerpt:
@@ -341,7 +341,7 @@ async function handleAuthSubmit(event) {
   const email = (document.getElementById('auth-email')?.value || 'estudante@synapsemd.edu.br').trim();
   const password = document.getElementById('auth-password')?.value || 'Synapse2026!';
   const name = (document.getElementById('auth-name')?.value || '').trim();
-  const period = document.getElementById('auth-period')?.value || '2º Período — Medicina (APG & HAM)';
+  const period = document.getElementById('auth-period')?.value || 'Ciclo Básico — Medicina (APG & HAM)';
 
   try {
     const endpoint = state.authMode === 'register' ? '/api/auth/register' : '/api/auth/login';
@@ -605,7 +605,7 @@ function renderInitialMentorMessage() {
     explanation:
       `Olá! Bem-vinda(o) à **SYNAPSE MD** — plataforma acadêmica de aprendizagem médica ativa.\n\n` +
       `Aqui você tem acesso imediato a **todas as 45 questões e casos clínicos**:\n` +
-      `• **APG 2º Período (8 temas):** SNC, SNP, Potencial de Ação/Sinapses, Visão, Audição/Equilíbrio, Renal, Reprodutor Feminino e Masculino.\n` +
+      `• **APG — Morfofisiologia (8 temas):** SNC, SNP, Potencial de Ação/Sinapses, Visão, Audição/Equilíbrio, Renal, Reprodutor Feminino e Masculino.\n` +
       `• **HAM — Habilidades Médicas (7 temas e casos):** Exame Neurológico Motor/Ataxia, 12 Pares Cranianos, Exame Ginecológico, Cateterismo Vesical de Demora e SBV/DEA.\n` +
       `• **Fisiologia Médica (10 questões):** Condução Cardíaca, Trocas Alveolares, Sistema Linfático, Termorregulação, Insulina/Glucagon, Eritropoiese (EPO), Pressões Respiratórias, Linfócitos B/T, Hemostasia e Glicólise/ATP.\n` +
       `• **Fisiopatologia & Clínica (10 questões):** DRGE (EEI), *H. pylori* e Câncer Gástrico, Alergia IgE vs Intolerância, Crohn vs Retocolite, Giardíase, Diarreias, Obstrução Intestinal, Cirrose/Hipertensão Portal, Nefrítica vs Nefrótica e Câncer de Mama.\n` +
@@ -613,7 +613,7 @@ function renderInitialMentorMessage() {
     clinicalReasoning:
       `Selecione qualquer tema na caixa acima ou clique em um dos botões rápidos (**Entender Mecanismo**, **Anatomia & Fisiologia**, **Diagnóstico & Conduta** ou **Testar em Caso Clínico**) para estudar passo a passo.`,
     socraticQuestion:
-      `Por qual caderno você quer começar agora: Fisiopatologia (ex: DRGE e H. pylori), Fisiologia, APG/HAM do 2º Período ou Casos Clínicos do SOI III?`,
+      `Por qual caderno você quer começar agora: Fisiopatologia (ex: DRGE e H. pylori), Fisiologia, APG/HAM ou Casos Clínicos do SOI III?`,
     references: [
       {
         source: 'Guyton & Hall / Moore / Netter / Bates / Robbins & Cotran',
