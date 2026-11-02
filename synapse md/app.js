@@ -146,6 +146,11 @@ function applySavedTheme() {
   if (authLabel) authLabel.textContent = nextLabel;
   if (appIcon) appIcon.textContent = nextIcon;
   if (appLabel) appLabel.textContent = nextLabel;
+
+  const metaTheme = document.querySelector('meta[name="theme-color"]');
+  if (metaTheme) {
+    metaTheme.setAttribute('content', isLight ? '#f8fafc' : '#060814');
+  }
 }
 
 function toggleTheme() {
@@ -627,7 +632,10 @@ async function onSelectTopicFromDropdown(topicValue) {
   if (!topicValue) return;
   state.currentApgTopic = topicValue;
   loadApgTopic(topicValue);
-  await sendQuickPrompt(`Explique de forma completa e didática o tema: ${topicValue}`);
+  const input = document.getElementById('chat-input');
+  if (input) {
+    input.placeholder = `Pergunte sobre: ${topicValue.split('—')[0].trim()}...`;
+  }
 }
 
 async function triggerTopicAction(actionType) {
@@ -1323,4 +1331,17 @@ window.addEventListener('DOMContentLoaded', () => {
   if (state.token) {
     bootstrapWorkspace();
   }
+
+  // Previne sobreposição da barra inferior quando o teclado virtual abrir no celular
+  document.addEventListener('focusin', (e) => {
+    if (['INPUT', 'TEXTAREA', 'SELECT'].includes(e.target.tagName)) {
+      document.body.classList.add('keyboard-open');
+    }
+  });
+
+  document.addEventListener('focusout', (e) => {
+    if (['INPUT', 'TEXTAREA', 'SELECT'].includes(e.target.tagName)) {
+      document.body.classList.remove('keyboard-open');
+    }
+  });
 });

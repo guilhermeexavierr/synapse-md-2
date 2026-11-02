@@ -91,6 +91,7 @@ html,
 body {
   width: 100%;
   min-height: 100vh;
+  min-height: 100dvh;
   overflow-x: hidden;
   background-color: var(--bg-main);
   color: var(--text-primary);
@@ -145,6 +146,7 @@ body {
   position: relative;
   z-index: 1;
   min-height: 100vh;
+  min-height: 100dvh;
   padding: 1.25rem 1.5rem 2.5rem;
   max-width: 1280px;
   margin: 0 auto;
@@ -533,6 +535,7 @@ textarea:focus {
   display: grid;
   grid-template-columns: 265px 1fr;
   min-height: 100vh;
+  min-height: 100dvh;
 }
 
 .sidebar {
@@ -544,6 +547,7 @@ textarea:focus {
   position: sticky;
   top: 0;
   height: 100vh;
+  height: 100dvh;
   overflow-y: auto;
 }
 
@@ -1449,52 +1453,385 @@ textarea:focus {
 }
 
 /* ============================================================================
-   8. BARRA DE NAVEGAÇÃO MOBILE (ESTILO APP NATIVO NO CELULAR)
+   8. COMPONENTES DINÂMICOS & ELEMENTOS DE INTERFACE
    ============================================================================ */
+
+/* Balões de Mensagem (Mentor IA) */
+.msg-bubble.msg-user {
+  align-self: flex-end;
+  background: linear-gradient(135deg, #6d28d9, #9333ea);
+  color: #ffffff;
+  border-bottom-right-radius: 4px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.msg-bubble.msg-ai {
+  align-self: flex-start;
+  background: var(--bg-elevated);
+  border: 1px solid var(--border-subtle);
+  border-left: 3.5px solid var(--synapse-cyan);
+  border-bottom-left-radius: 4px;
+}
+
+.msg-section {
+  font-size: 0.92rem;
+  line-height: 1.62;
+  color: var(--text-primary);
+  margin-bottom: 0.45rem;
+}
+
+.msg-socratic-box {
+  margin-top: 0.75rem;
+  padding: 0.75rem 0.95rem;
+  background: var(--synapse-violet-soft);
+  border-left: 3px solid var(--synapse-violet);
+  border-radius: 8px;
+  font-size: 0.88rem;
+  line-height: 1.55;
+}
+
+.msg-socratic-box strong {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--synapse-violet);
+  text-transform: uppercase;
+  margin-bottom: 0.25rem;
+}
+
+/* Cards do Catálogo de Questões (APG & HAM) */
+.catalog-topic-card {
+  text-align: left;
+  background: var(--bg-elevated);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-sm);
+  padding: 0.75rem 0.95rem;
+  color: var(--text-primary);
+  cursor: pointer;
+  transition: all 0.18s ease;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  min-height: 52px;
+}
+
+.catalog-topic-card:hover,
+.catalog-topic-card.selected {
+  border-color: var(--synapse-cyan);
+  background: var(--synapse-cyan-soft);
+  transform: translateY(-1px);
+}
+
+.cat-track {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  font-weight: 700;
+  color: var(--synapse-cyan);
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+.cat-title {
+  font-size: 0.84rem;
+  font-weight: 600;
+  line-height: 1.35;
+  color: var(--text-primary);
+}
+
+/* 5 Eixos e Desafio Socrático (APG) */
+.axis-tag {
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  font-weight: 700;
+  color: var(--synapse-violet);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  margin-bottom: 0.35rem;
+}
+
+.axis-body {
+  font-size: 0.88rem;
+  line-height: 1.58;
+  color: var(--text-primary);
+}
+
+/* Casos Clínicos & Opções */
+.option-letter {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  font-family: var(--font-mono);
+  font-weight: 700;
+  font-size: 0.82rem;
+  flex-shrink: 0;
+  color: var(--text-primary);
+}
+
+.reasoning-input-box {
+  margin: 1rem 0;
+}
+
+.reasoning-input-box label {
+  display: block;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  margin-bottom: 0.4rem;
+}
+
+.reasoning-input-box textarea {
+  width: 100%;
+}
+
+.feedback-banner {
+  margin-top: 1.15rem;
+  padding: 1.1rem 1.25rem;
+  border-radius: var(--radius-md);
+  border: 1px solid;
+}
+
+.feedback-banner.success {
+  background: var(--synapse-emerald-soft);
+  border-color: var(--synapse-emerald);
+  color: var(--text-primary);
+}
+
+.feedback-banner.error {
+  background: rgba(239, 68, 68, 0.12);
+  border-color: #ef4444;
+  color: var(--text-primary);
+}
+
+/* Memória Acadêmica: KPIs & Progresso */
+.kpi-card {
+  background: var(--bg-elevated);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  padding: 1rem 1.15rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.kpi-label {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  font-weight: 700;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.kpi-value {
+  font-family: var(--font-display);
+  font-size: 1.6rem;
+  font-weight: 800;
+  color: var(--text-primary);
+}
+
+.topic-progress-item {
+  padding: 0.75rem 0.85rem;
+  border-radius: var(--radius-sm);
+  background: var(--bg-elevated);
+  border: 1px solid var(--border-subtle);
+  margin-bottom: 0.65rem;
+}
+
+.topic-progress-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.86rem;
+  margin-bottom: 0.4rem;
+}
+
+.progress-track {
+  width: 100%;
+  height: 7px;
+  background: var(--bg-input);
+  border-radius: 999px;
+  overflow: hidden;
+  margin-bottom: 0.35rem;
+}
+
+.progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--synapse-cyan), var(--synapse-violet));
+  border-radius: 999px;
+  transition: width 0.35s ease;
+}
+
+.difficulty-item {
+  background: rgba(245, 158, 11, 0.09);
+  border-left: 3px solid var(--synapse-amber);
+  border-radius: var(--radius-sm);
+  padding: 0.75rem 0.9rem;
+  margin-bottom: 0.65rem;
+}
+
+.suggestion-item {
+  background: var(--bg-elevated);
+  border: 1px solid var(--border-subtle);
+  border-left: 3px solid var(--synapse-emerald);
+  border-radius: var(--radius-sm);
+  padding: 0.85rem;
+  margin-bottom: 0.75rem;
+}
+
+.activities-timeline {
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+}
+
+.activity-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.75rem 0.9rem;
+  background: var(--bg-elevated);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-sm);
+}
+
+.activity-type {
+  font-family: var(--font-mono);
+  font-size: 0.66rem;
+  font-weight: 700;
+  padding: 0.2rem 0.45rem;
+  border-radius: 4px;
+  background: var(--synapse-violet-soft);
+  color: var(--synapse-violet);
+  text-transform: uppercase;
+}
+
+/* Materiais de Apoio */
+.material-item {
+  background: var(--bg-elevated);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-sm);
+  padding: 0.85rem 1rem;
+  margin-bottom: 0.75rem;
+}
+
+.material-item h4 {
+  font-size: 0.92rem;
+  margin-bottom: 0.3rem;
+  color: var(--text-primary);
+}
+
+.material-meta {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  margin-bottom: 0.45rem;
+}
+
+/* ============================================================================
+   9. RESPONSIVIDADE MOBILE (960px e 420px)
+   ============================================================================ */
+
+/* Proteção contra :hover 'grudando' no toque no celular */
+@media (hover: hover) {
+  .action-pill:hover {
+    background: var(--synapse-violet-soft);
+    border-color: var(--synapse-violet);
+    color: var(--text-primary);
+  }
+  .track-btn:hover {
+    background: var(--synapse-violet-strong);
+    border-color: var(--synapse-violet);
+    color: #ffffff;
+  }
+  .catalog-topic-card:hover {
+    border-color: var(--synapse-cyan);
+    background: var(--synapse-cyan-soft);
+    transform: translateY(-1px);
+  }
+  .option-btn:hover {
+    border-color: var(--synapse-violet);
+    background: var(--synapse-violet-soft);
+    transform: translateY(-1px);
+  }
+}
+
 .mobile-bottom-nav {
   display: none;
 }
 
 @media (max-width: 960px) {
-  .auth-container,
+  /* No celular, mostra o card de Login antes dos textos institucionais */
+  .auth-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .auth-box {
+    order: -1;
+    width: 100%;
+  }
+
+  .auth-hero {
+    order: 1;
+    width: 100%;
+  }
+
   .mentor-layout,
   .memory-grid,
-  .materials-layout {
-    grid-template-columns: 1fr;
-  }
-
-  .tri-intelligence-grid {
-    grid-template-columns: 1fr;
-  }
-
+  .materials-layout,
+  .tri-intelligence-grid,
   .credits-names-grid {
     grid-template-columns: 1fr;
   }
 
   .app-shell {
     grid-template-columns: 1fr;
-    padding-bottom: calc(74px + env(safe-area-inset-bottom));
+    min-height: 100vh;
+    min-height: 100dvh;
+    padding-bottom: calc(76px + env(safe-area-inset-bottom));
   }
 
-  /* No celular, oculta a barra lateral pesada e ativa a barra inferior fixa */
+  /* Oculta barra lateral desktop */
   .sidebar {
     display: none;
   }
 
   .workspace {
-    padding: 1rem 0.95rem 1.5rem;
+    padding: 0.85rem 0.85rem 1.5rem;
   }
 
   .workspace-header {
-    padding-bottom: 0.75rem;
+    padding-bottom: 0.65rem;
+    flex-wrap: wrap;
+    gap: 0.5rem;
   }
 
   .section-heading {
-    font-size: 1.3rem;
+    font-size: 1.25rem;
+  }
+
+  /* Chat flexível: adapta à altura e não empurra a página */
+  .chat-panel {
+    display: flex;
+    flex-direction: column;
+    min-height: 0;
   }
 
   .chat-messages {
-    height: 360px;
+    height: auto;
+    min-height: 280px;
+    max-height: 52dvh;
+    flex: 1;
     padding: 0.85rem;
   }
 
@@ -1504,10 +1841,18 @@ textarea:focus {
     font-size: 0.88rem;
   }
 
+  .chat-composer {
+    position: sticky;
+    bottom: 0;
+    z-index: 10;
+    padding: 0.75rem 0.85rem;
+  }
+
   .memory-kpi-row {
     grid-template-columns: repeat(2, 1fr);
   }
 
+  /* Barra de Navegação Inferior Acessível */
   .mobile-bottom-nav {
     position: fixed;
     bottom: 0;
@@ -1518,8 +1863,17 @@ textarea:focus {
     border-top: 1px solid var(--border-violet);
     display: grid;
     grid-template-columns: repeat(5, 1fr);
+    min-height: 58px;
     padding: 0.35rem 0.25rem calc(0.35rem + env(safe-area-inset-bottom));
     box-shadow: 0 -6px 24px rgba(0, 0, 0, 0.35);
+    transition: transform 0.2s ease, opacity 0.2s ease;
+  }
+
+  /* Esconde a barra inferior quando o teclado virtual estiver aberto */
+  body.keyboard-open .mobile-bottom-nav {
+    transform: translateY(100%);
+    opacity: 0;
+    pointer-events: none;
   }
 
   .mob-nav-btn {
@@ -1530,17 +1884,19 @@ textarea:focus {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: 0.18rem;
-    padding: 0.35rem 0.15rem;
+    gap: 0.2rem;
+    padding: 0.4rem 0.15rem;
     font-family: var(--font-sans);
-    font-size: 0.68rem;
+    font-size: 0.74rem; /* 12px legível */
     font-weight: 600;
     cursor: pointer;
     border-radius: 8px;
+    min-height: 48px;
   }
 
   .mob-nav-btn .mob-icon {
-    font-size: 1.15rem;
+    font-size: 1.25rem;
+    line-height: 1;
   }
 
   .mob-nav-btn.active {
@@ -1548,3 +1904,52 @@ textarea:focus {
     background: var(--synapse-violet-soft);
   }
 }
+
+/* Breakpoint para celulares compactos (iPhone SE, Galaxy A, telas <= 420px) */
+@media (max-width: 420px) {
+  .workspace {
+    padding: 0.65rem 0.65rem 1.25rem;
+  }
+
+  .workspace-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .header-controls {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .memory-kpi-row {
+    grid-template-columns: 1fr;
+  }
+
+  .section-heading {
+    font-size: 1.15rem;
+  }
+
+  .btn-send {
+    padding: 0.65rem 0.85rem;
+    font-size: 0.82rem;
+  }
+
+  .slide-action-pills {
+    padding: 0.55rem 0.5rem;
+    gap: 0.35rem;
+  }
+
+  .action-pill {
+    padding: 0.4rem 0.65rem;
+    font-size: 0.72rem;
+  }
+
+  .mob-nav-btn {
+    font-size: 0.68rem;
+  }
+
+  .mob-nav-btn .mob-icon {
+    font-size: 1.15rem;
+  }
+}
+
