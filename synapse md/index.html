@@ -23,9 +23,6 @@
   <section id="auth-screen" class="auth-screen" aria-label="Acesso à Plataforma Synapse MD">
     <!-- Barra Superior Rápida com Botão de Tema Claro/Escuro -->
     <div class="auth-top-bar">
-      <div class="group-pill">
-        <span>PROTÓTIPO ACADÊMICO // AMBIENTE DE APRENDIZAGEM</span>
-      </div>
       <button type="button" class="theme-toggle-btn" onclick="toggleTheme()" aria-label="Alternar entre tema claro e escuro">
         <span class="theme-icon" id="auth-theme-icon">☀️</span>
         <span id="auth-theme-label">Tema Claro</span>
@@ -259,8 +256,8 @@
       <!-- Barra Superior Limpa e Responsiva -->
       <header class="workspace-header">
         <div class="header-title-block">
-          <span class="section-eyebrow" id="current-module-eyebrow">MODO: APG • HAM • FISIOPATOLOGIA • SOI III</span>
-          <h2 class="section-heading" id="current-module-title">Estudar com a Synapse MD</h2>
+          <span class="section-eyebrow" id="current-module-eyebrow" style="display:none;"></span>
+          <h2 class="section-heading" id="current-module-title">Mentor Clínico</h2>
         </div>
 
         <div class="header-controls">
@@ -283,9 +280,9 @@
             <!-- Seletor de Tópico Organizado com todo o Material de Apoio -->
             <div class="chat-toolbar">
               <div class="topic-selector-wrap">
-                <label for="chat-apg-topic">Modo / Tema de Estudo:</label>
+                <label for="chat-apg-topic">Tema de Estudo:</label>
                 <select id="chat-apg-topic" onchange="onSelectTopicFromDropdown(this.value)">
-                  <optgroup label="📘 1. APG Morfofisiologia (2º Período)">
+                  <optgroup label="📘 1. Morfofisiologia (SNC, SNP, Renal, Reprodutor)">
                     <option value="1. Sistema Nervoso Central — Organização Anatômica e Funcional">1. SNC — Encéfalo e Medula</option>
                     <option value="2. Sistema Nervoso Periférico — Nervos Cranianos, Espinais e Vias">2. SNP — Vias e Nervos</option>
                     <option value="3. Neurofisiologia — Potencial de Ação e Transmissão Sináptica">3. Potencial de Ação e Sinapses</option>
@@ -295,27 +292,27 @@
                     <option value="7. Sistema Reprodutor Feminino — Anatomia, Histologia e Ciclo Menstrual">7. Reprodutor Feminino (Ciclo)</option>
                     <option value="8. Sistema Reprodutor Masculino — Anatomia, Espermatogênese e Testosterona">8. Reprodutor Masculino</option>
                   </optgroup>
-                  <optgroup label="🩺 2. HAM Semiologia & Prática">
+                  <optgroup label="🩺 2. Prática Clínica & Semiologia">
                     <option value="9 & 14. HAM — Exame Neurológico (Motricidade, Reflexos, Coordenação e Caso de Ataxia)">9 &amp; 14. Exame Neurológico e Ataxia</option>
                     <option value="10. HAM — Exame Semiológico dos 12 Pares de Nervos Cranianos">10. 12 Pares Cranianos</option>
                     <option value="11. HAM — Exame Geniturinário Feminino (Inspeção, Especular e Toque Bimanual)">11. Exame Ginecológico</option>
                     <option value="12 & 15. HAM — Cateterismo Vesical de Demora (Técnica Asséptica e Caso Clínico)">12 &amp; 15. Cateterismo Vesical</option>
                     <option value="13. HAM — Suporte Básico de Vida (SBV / BLS) e Uso do DEA na PCR">13. Suporte Básico de Vida (SBV/DEA)</option>
                   </optgroup>
-                  <optgroup label="⚡ 3. Fisiologia Médica (10 Questões)">
+                  <optgroup label="⚡ 3. Fisiologia Médica">
                     <option value="Fisiologia 01 — Sistema de Condução Elétrica do Coração e Sincronia Atrioventricular">Fisio 01: Condução Cardíaca</option>
                     <option value="Fisiologia 02 & 07 — Mecânica Ventilatória (Pressões) e Troca Gasosa Alveolar (Hematose)">Fisio 02 &amp; 07: Hematose e Pressões</option>
                     <option value="Fisiologia 03 & 04 — Sistema Linfático (Equilíbrio Hídrico) e Termorregulação Cutânea">Fisio 03 &amp; 04: Linfático e Pele</option>
                     <option value="Fisiologia 05 & 10 — Insulina vs Glucagon na Glicemia e Bioenergética (Glicólise e ATP)">Fisio 05 &amp; 10: Insulina, Glucagon e ATP</option>
                     <option value="Fisiologia 06, 08 & 09 — Eritropoiese (EPO), Linfócitos B e T e Hemostasia (Plaquetas e Coagulação)">Fisio 06, 08 &amp; 09: EPO, Imuno e Hemostasia</option>
                   </optgroup>
-                  <optgroup label="🔬 4. Fisiopatologia & Clínica (10 Questões)">
+                  <optgroup label="🔬 4. Fisiopatologia">
                     <option value="Fisiopatologia 01 & 02 — Disfunção do EEI na DRGE e H. pylori no Câncer Gástrico" selected>Fisiopato 01 &amp; 02: DRGE e H. pylori</option>
                     <option value="Fisiopatologia 03 & 04 — Alergia IgE vs Intolerância Alimentar e Doença de Crohn vs Retocolite Ulcerativa">Fisiopato 03 &amp; 04: Alergia vs Crohn/RCU</option>
                     <option value="Fisiopatologia 05, 06 & 07 — Giardíase, Mecanismos da Diarreia e Sinais de Obstrução Intestinal">Fisiopato 05-07: Giardíase e Diarreias</option>
                     <option value="Fisiopatologia 08, 09 & 10 — Cirrose e Hipertensão Portal, Nefrítica vs Nefrótica e Câncer de Mama">Fisiopato 08-10: Cirrose, Rim e Ca Mama</option>
                   </optgroup>
-                  <optgroup label="🏥 5. SOI III Casos Integrados">
+                  <optgroup label="🏥 5. Casos Clínicos Integrados">
                     <option value="SOI III Caso 01 — Hipertensão Arterial e Emergência Hipertensiva (Lesão de Órgãos-Alvo)">Caso 01: Emergência Hipertensiva</option>
                     <option value="SOI III Caso 02 — Dor Torácica: Síndrome Coronariana Aguda, Choque e Diagnóstico Diferencial">Caso 02: Dor Torácica e SCA</option>
                     <option value="SOI III Casos 03 & 04 — Dispneia Aguda (IC vs DPOC/Asma) e Tromboembolismo Pulmonar (TVP/TEP)">Casos 03 &amp; 04: Dispneia e TEP</option>

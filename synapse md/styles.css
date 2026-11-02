@@ -157,7 +157,7 @@ body {
 
 .auth-top-bar {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-end;
   align-items: center;
   gap: 1rem;
   margin-bottom: 1.5rem;
@@ -909,6 +909,28 @@ textarea:focus {
   color: var(--synapse-violet);
   text-transform: uppercase;
   margin-bottom: 0.25rem;
+}
+
+.msg-inline-references {
+  margin-top: 0.75rem;
+  padding-top: 0.55rem;
+  border-top: 1px solid var(--border-subtle);
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.inline-ref-badge {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-cyan);
+  color: var(--synapse-cyan);
+  padding: 0.15rem 0.45rem;
+  border-radius: 4px;
+  font-size: 0.72rem;
+  font-family: var(--font-mono);
 }
 
 .chat-composer {
@@ -1811,6 +1833,11 @@ textarea:focus {
   .tri-intelligence-grid,
   .credits-names-grid {
     grid-template-columns: 1fr;
+  }
+
+  /* No mobile, oculta a sidebar de fontes/progresso para deixar o chat 100% limpo e sem poluição */
+  .evidence-sidebar {
+    display: none;
   }
 
   .app-shell {

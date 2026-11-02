@@ -538,24 +538,24 @@ function populateReviewTopicSelect() {
 
 const MODULE_META = {
   mentor: {
-    eyebrow: 'MODO: APG • HAM • FISIOPATOLOGIA • SOI III',
-    title: 'Estudar com a Synapse MD'
+    eyebrow: '',
+    title: 'Mentor Clínico'
   },
   apg: {
-    eyebrow: 'CADERNO DE QUESTÕES // OS 5 EIXOS DO RACIOCÍNIO',
-    title: 'Roteiro APG, HAM, Fisiologia & Fisiopatologia'
+    eyebrow: 'RACIOCÍNIO CLÍNICO',
+    title: 'Banco de Questões & 5 Eixos'
   },
   reviews: {
-    eyebrow: 'APRENDIZAGEM ATIVA // CASOS CLÍNICOS SIMULADOS',
-    title: 'Casos Clínicos SOI III & Revisão Ativa'
+    eyebrow: 'APRENDIZAGEM ATIVA',
+    title: 'Casos Clínicos & Simulação'
   },
   memory: {
-    eyebrow: 'INTELIGÊNCIA EDUCACIONAL // ACOMPANHAMENTO',
-    title: 'Suas Lacunas, Progresso e Revisões'
+    eyebrow: 'ACOMPANHAMENTO',
+    title: 'Suas Lacunas e Progresso'
   },
   materials: {
-    eyebrow: 'ACERVO DO GRUPO // CADERNOS E PDFs',
-    title: 'Materiais de Apoio Integrados'
+    eyebrow: 'BIBLIOTECA',
+    title: 'Materiais de Apoio'
   }
 };
 
@@ -574,7 +574,11 @@ function switchModule(moduleId) {
 
   const meta = MODULE_META[moduleId];
   if (meta) {
-    document.getElementById('current-module-eyebrow').textContent = meta.eyebrow;
+    const eyebrowEl = document.getElementById('current-module-eyebrow');
+    if (eyebrowEl) {
+      eyebrowEl.textContent = meta.eyebrow || '';
+      eyebrowEl.style.display = meta.eyebrow ? 'inline-block' : 'none';
+    }
     document.getElementById('current-module-title').textContent = meta.title;
   }
 
@@ -702,7 +706,8 @@ async function handleChatSubmit(event) {
       role: 'assistant',
       topic: matchedTopic,
       explanation: explanationText,
-      socraticQuestion
+      socraticQuestion,
+      references
     });
 
     updateEvidenceDrawer({
@@ -746,6 +751,12 @@ function appendChatBubble(msg) {
       <div class="msg-section">${escapeHtml(msg.text)}</div>
     `;
   } else {
+    const refsHtml = (msg.references && msg.references.length > 0)
+      ? `<div class="msg-inline-references">
+           <strong>📚 Fontes:</strong> ${msg.references.map(r => `<span class="inline-ref-badge">${escapeHtml(r.source)} (${escapeHtml(r.year || '2025')})</span>`).join(' ')}
+         </div>`
+      : '';
+
     div.innerHTML = `
       <div class="msg-header">
         <span>SYNAPSE MD // ${escapeHtml(msg.topic || 'MENTOR CLÍNICO')}</span>
@@ -764,6 +775,7 @@ function appendChatBubble(msg) {
              </div>`
           : ''
       }
+      ${refsHtml}
     `;
   }
 
