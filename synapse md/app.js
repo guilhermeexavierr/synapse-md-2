@@ -624,7 +624,7 @@ function renderInitialMentorMessage() {
       }
     ],
     limitations:
-      'Priorizamos exclusivamente literatura médica de referência e diretrizes oficiais. Zero uso de Wikipédia.'
+      'Priorizamos literatura médica de referência e diretrizes oficiais atualizadas.'
   };
 
   appendChatBubble(welcomeMessage);
@@ -904,7 +904,7 @@ function renderApgAxes(data) {
 
   const refsCard = `
     <article class="axis-card">
-      <span class="axis-tag">FONTES OFICIAIS // ZERO WIKIPÉDIA</span>
+      <span class="axis-tag">FONTES OFICIAIS DE REFERÊNCIA</span>
       <h3>Referências deste Tema</h3>
       <div>
         ${(data.references || [])
